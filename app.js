@@ -1,7 +1,6 @@
 import inquirer from "inquirer";
 import generatePage from './src/page-template.js';
-import fs from 'node:fs';
-// const pageHTML = generatePage(name,github);
+import { writeFile, copyFile} from './utils/generate-site.js'
 
 const promptUser = () => {
   return inquirer.prompt([
@@ -133,12 +132,20 @@ const promptUser = () => {
   promptUser()
   .then(promptProject)
   .then(portfolioData => {
-    const pageHTML = generatePage(portfolioData);
-    fs.writeFile('./index.html', pageHTML , err => {
-      if (err) throw new Error(err);
-    
-      console.log('Portfolio complete! Check out index.html to see the output!');
-    });
+    return generatePage(portfolioData);
+  })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
+  .then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
+  .then(copyFileResponse => {
+    console.log(copyFileResponse);
+  })
+  .catch(err => {
+    console.log(err);
   });
   
 
