@@ -18,8 +18,9 @@ Pull the app from the repository, go to the terminal and type node app to use it
 This app is used to make a portfolio that prompts the user information to add into their personal portfolio
 ---
 ## Question
-undefined
 Contact me through either:
 [GitHub](https://github.com/edm1001)
 [Email: edmerfranciz@gmail.com](mailto:edmerfranciz@gmail.com)
-
+---
+## License
+MIT License
