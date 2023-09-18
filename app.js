@@ -1,6 +1,6 @@
-import inquirer from "inquirer";
-import generatePage from './src/page-template.js';
-import { writeFile, copyFile} from './utils/generate-site.js'
+const inquirer = require("inquirer");
+const generatePage = require("./src/page-template.js");
+const {writeFile, copyFile} =  require("./utils/generate-site.js");
 
 const promptUser = () => {
   return inquirer.prompt([
